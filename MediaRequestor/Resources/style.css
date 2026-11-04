@@ -1,0 +1,164 @@
+.towel42-media-requestor-panel {
+    width: 95%;
+    margin: 24px auto;
+    padding: 16px;
+    border: 1px solid var(--line-background);
+    border-radius: var(--card-border-radius, 4px);
+    background-color: var(--background-default);
+    color: var(--text-normal);
+    box-sizing: border-box;
+    font-family: sans-serif;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.towel42-media-requestor-title {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--line-background);
+    padding-bottom: 10px;
+    font-size: 1.15rem;
+    font-weight: 500;
+    position: sticky;
+    top: -16px;
+    background-color: hsl(var(--theme-primary-color-hue),var(--theme-primary-color-saturation),var(--theme-primary-color-lightness));
+    z-index: 3;
+}
+
+.towel42-media-requestor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.towel42-media-requestor-swatch {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border: 1px solid var(--line-background);
+    border-radius: 4px;
+    color: hsl(var(--theme-text-color-hue),var(--theme-text-color-saturation),var(--theme-text-color-lightness));
+    background-color: hsl(var(--background-hue),var(--background-saturation),var(--background-lightness));
+    box-sizing: border-box;
+    min-width: 0;
+    transition: background-color 0.15s ease;
+}
+
+    .towel42-media-requestor-swatch:hover {
+        background-color: var(--itemselection-overlay);
+    }
+
+.towel42-media-requestor-layoutblock {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+}
+
+.towel42-media-requestor-colorblock {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 1px solid var(--line-background);
+    flex-shrink: 0;
+}
+
+.towel42-media-requestor-namevalueblock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 0;
+    gap: 8px;
+}
+
+.towel42-media-requestor-name {
+    color: var(--text-normal);
+    font-size: 0.85rem;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    min-width: 0;
+}
+
+.towel42-media-requestor-value {
+    color: var(--text-normal);
+    font-size: 0.85rem;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    text-align: right;
+    margin-left: auto;
+    flex-shrink: 0;
+    max-width: 60%;
+}
+
+.towel42-media-requestor-input {
+    background: hsl(var(--input-background-hue),var(--input-background-saturation),var(--input-background-lightness));
+    border: 1px solid var(--line-background);
+    color: var(--text-normal);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    width: 140px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+    .towel42-media-requestor-input:focus {
+        outline: none;
+        border-color: var(--text-normal) !important;
+        background: hsl(var(--button-background-hue),var(--button-background-saturation),var(--button-background-lightness), 0.4) !important;
+    }
+
+.towel42-media-requestor-output-pane {
+    display: flex;
+    flex-direction: column;
+}
+
+.towel42-media-requestor-output-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line-background);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+}
+
+.towel42-media-requestor-title-compact {
+    margin: 0;
+    border: none;
+    padding: 0;
+    color: var(--text-normal);
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+.towel42-media-requestor-textarea {
+    width: 100%;
+    height: 250px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    resize: vertical;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-normal);
+    border: 1px solid var(--line-background);
+    padding: 12px;
+    border-radius: 4px;
+}
+
+    .towel42-media-requestor-textarea:focus {
+        outline: none;
+        border-color: var(--text-normal);
+    }

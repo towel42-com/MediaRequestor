@@ -1,0 +1,94 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;</TargetFrameworks>
+		<Version>1.0.0.0</Version>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+		<NoWarn>$(NoWarn);SYSLIB1030;CS0436;CS0618</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Using Include="System" />
+		<Using Include="System.IO" />
+		<Using Include="System.Collections" />
+		<Using Include="System.Collections.Generic" />
+		<Using Include="System.Threading" />
+		<Using Include="System.Threading.Tasks" />
+		<Using Include="System.Linq" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<OutputPath>build\$(Configuration)</OutputPath>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	</PropertyGroup>
+	<PropertyGroup>
+		<InstallAndLaunchPath>$(SolutionDir)\\..\\EmbyPluginUtils\\InstallAndLaunch.bat</InstallAndLaunchPath>
+	</PropertyGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent" DependsOnTargets="DetermineEmbyRoot">
+		<Exec Command="call $(InstallAndLaunchPath) -Build -TargetPath &quot;$(TargetPath)&quot; -EmbyRoot $(EmbyServerRoot)" />
+	</Target>
+
+	<PropertyGroup>
+		<TargetLaunchDependsOn>$(TargetLaunchDependsOn);DetermineEmbyRoot</TargetLaunchDependsOn>
+	</PropertyGroup>
+
+	<Target Name="DetermineEmbyRoot" BeforeTargets="BeforeBuild">
+		<PropertyGroup Condition="'$(ActiveDebugProfile)' == 'Default'">
+			<EmbyServerRoot>$(APPDATA)\Emby-Server</EmbyServerRoot>
+		</PropertyGroup>
+
+		<PropertyGroup Condition="'$(ActiveDebugProfile)' == 'Small'">
+			<EmbyServerRoot>D:\Emby\minimal</EmbyServerRoot>
+		</PropertyGroup>
+
+		<PropertyGroup Condition="'$(ActiveDebugProfile)' == 'Full'">
+			<EmbyServerRoot>D:\Emby\mediaplayer</EmbyServerRoot>
+		</PropertyGroup>
+
+		<PropertyGroup Condition="'$(ActiveDebugProfile)' == ''">
+			<EmbyServerRoot>###Set Debug Profile###</EmbyServerRoot>
+		</PropertyGroup>
+
+		<MakeDir Directories="$(MSBuildProjectDirectory)\.vs\$(ProjectName)\$(Configuration)" />
+		<WriteLinesToFile File="$(MSBuildProjectDirectory)/.vs/$(ProjectName)/$(Configuration)/embyroot.cache" Lines="$(EmbyServerRoot)" Overwrite="true" WriteOnlyWhenDifferent="true" />
+	</Target>
+
+	<ItemGroup>
+		<Compile Remove="build\**" />
+		<Compile Remove="Pages\**" />
+		<EmbeddedResource Remove="build\**" />
+		<EmbeddedResource Remove="Pages\**" />
+		<None Remove="build\**" />
+		<None Remove="Pages\**" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<!-- CS0122: Inaccessible protection level -->
+		<!-- CS0433: Type exists in both assemblies/files -->
+		<NoWarn>$(NoWarn);CS0122;CS0433</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Pages\MediaRequestor.js" />
+		<EmbeddedResource Include="Pages\MediaRequestor.html" />
+		<EmbeddedResource Include="Resources\thumb.png" />
+		<EmbeddedResource Include="Resources\style.css" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Emby.ApiClient" Version="4.8.10" />
+		<PackageReference Include="MediaBrowser.Server.Core" Version="4.9.1.90" />
+		<PackageReference Include="SQLitePCL.pretty.core" Version="1.2.2" />
+		<PackageReference Include="System.Memory" Version="4.6.3" />
+		<PackageReference Include="System.Text.Json" Version="8.0.5" />
+		<PackageReference Include="Microsoft.Bcl.HashCode" Version="6.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+			<_Parameter1>BuildDate</_Parameter1>
+			<_Parameter2>$([System.DateTime]::UtcNow.ToString("yyyy-MM-dd HH:mm:ssK"))</_Parameter2>
+		</AssemblyAttribute>
+	</ItemGroup>
+</Project>

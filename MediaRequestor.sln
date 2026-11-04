@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.8.12023.21
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{366C995E-B73F-4305-957C-E8302BA0A365}") = "MediaRequestor", "MediaRequestor\MediaRequestor.csproj", "{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}.Debug|x64.Build.0 = Debug|Any CPU
+		{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}.Debug|x86.Build.0 = Debug|Any CPU
+		{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}.Release|Any CPU.Build.0 = Release|Any CPU
+		{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}.Release|x64.ActiveCfg = Release|Any CPU
+		{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}.Release|x64.Build.0 = Release|Any CPU
+		{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}.Release|x86.ActiveCfg = Release|Any CPU
+		{aa72cae2-7bf4-418c-a2fc-a1f2f251e0ec}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9cf17df7-cdce-420f-8463-b9f8b4294d36}
+	EndGlobalSection
+EndGlobal

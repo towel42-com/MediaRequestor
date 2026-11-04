@@ -1,0 +1,27 @@
+﻿<div data-role="page" class="page type-interior pluginConfigurationPage"
+     data-require="emby-button,emby-select,emby-checkbox,emby-linkbutton,emby-textarea"
+     data-controller="__plugin/MediaRequestor.js">
+    <div data-role="content">
+        <div class="content-primary" style="padding-top:2px;">
+            <div class="towel42-media-requestor-panel">
+                <h3 class="towel42-media-requestor-title">Emby CSS Variables</h3>
+                <div id="variableGrid" class="towel42-media-requestor-grid"></div>
+            </div>
+
+            <div class="towel42-media-requestor-panel">
+                <h3 class="towel42-media-requestor-title">Emby CSS Color Variables</h3>
+                <div id="colorGrid" class="towel42-media-requestor-grid"></div>
+            </div>
+
+            <div class="towel42-media-requestor-panel towel42-media-requestor-output-pane">
+                <h3 class="towel42-media-requestor-title-compact" style="border-bottom: 1px solid var(--line-background); margin-bottom: 16px; padding-bottom: 10px;">Generated Custom CSS</h3>
+                <textarea id="generatedCSS" readonly class="emby-textarea towel42-media-requestor-textarea" style="margin-bottom: 16px;"></textarea>
+
+                <div style="display: flex; justify-content: center; width: 100%;">
+                    <button is="emby-button" type="button" id="btnApplyCustomCSS" class="raised button-submit block emby-button" style="margin: 0; max-width: 200px; width: 100%; font-size: 0.9rem; padding: 0.5em 1em;">Apply Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
